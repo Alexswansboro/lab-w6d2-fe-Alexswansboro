@@ -8,14 +8,11 @@ class App extends Component {
       display: '',
       history: []
     }
-    // this.buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-    // this.operators = ['+', '-', '/', 'x']
   }
   equals () {
     let display = this.state.display
     let result = eval(this.state.display)
-    this.state.history.push(`${display} = ${result}`)
-    return result
+    this.setState({ history: this.state.history.concat(`${display} = ${result}, `), display: result })
   }
   render () {
     return (
@@ -25,7 +22,7 @@ class App extends Component {
           <div id='display'>{this.state.display}</div>
         </td>
         <tr id='history'>{this.state.history}</tr>
-        <tr className='button'>
+        <div className='button'>
           <button id='1' onClick={() => this.setState({ display: this.state.display + '1' })}>1</button>
           <button id='2' onClick={() => this.setState({ display: this.state.display + '2' })}>2</button>
           <button id='3' onClick={() => this.setState({ display: this.state.display + '3' })}>3</button>
@@ -42,19 +39,13 @@ class App extends Component {
           <button id='/' onClick={() => this.setState({ display: this.state.display + '/' })}>/</button>
           <button id='.' onClick={() => this.setState({ display: this.state.display + '.' })}>.</button>
           <button id='C' onClick={() => this.setState({ display: ' ' })}>C</button>
-          <button id='=' onClick={() => equals()}>=</button>
-        </tr>
+          <button id='=' onClick={() => this.equals().map(h, idx) => <div key='idx'>h</div>}>=</button>
+        </div>
         <p className='App-intro' />
       </div>
 
     )
   }
 }
-// function equals () {
-//   let display = this.state.display
-//   let result = eval(this.state.display)
-//   this.state.history.push(`${display} = ${result}`)
-//   return result
-// }
 
 export default App
