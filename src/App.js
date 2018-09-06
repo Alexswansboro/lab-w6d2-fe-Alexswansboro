@@ -6,8 +6,13 @@ class App extends Component {
     super()
     this.state = {
       display: '',
-      history: []
+      history: [],
+      numberButtons: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+      operators: ['+', '-', 'x', '/', '=']
     }
+  }
+  clearDisplay () {
+
   }
   equals () {
     let display = this.state.display
@@ -37,7 +42,7 @@ class App extends Component {
         <button id='.' onClick={() => this.setState({ display: this.state.display + '.' })}>.</button>
         <button id='C' onClick={() => this.setState({ display: ' ' })}>C</button>
         <button id='=' onClick={() => this.equals()}>=</button>
-        {/* </div> */}
+  
         <div id='history'>{this.state.history.map((h, idx) => <div key={idx}>{h}</div>)}</div>
         <p className='App-intro' />
       </div>

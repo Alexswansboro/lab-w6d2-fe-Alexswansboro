@@ -13,5 +13,9 @@ There is one major change: you should add a display that shows all previous calc
 Before you build out any code, take time to plan your calculator. You should think about what components you will build and what props and state they will have. Use the following space to write up these plans. The lab is not complete without this information.
 
 ## TODO: calculator plan
+Identify the components to be display, buttons, hitsory.
+Figure out how what information each of them need
+
 
 **Write your components with their props and state here.**
+The only thing that has state is the App class and it's stat is display and history.  Everthing is written inside the class so I didn't have to pass props
